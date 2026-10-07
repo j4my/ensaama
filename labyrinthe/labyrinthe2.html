@@ -1,6 +1,8 @@
 <html>
     <head>
         <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+        <script src="https://ensaama-officiel-numerique.github.io/components/audio/audio-control.js"></script>
+        <link rel="stylesheet" href="https://ensaama-officiel-numerique.github.io/components/audio/audio-control.css">
     </head>
 
     <body>
@@ -15,6 +17,9 @@
                 <!-- mixins -->
                 <a-mixin id="murs" geometry="primitive: box; height: 3.56; width: 0.09; depth: 1" material="src: #mur; side: double; repeat: 0.56 1.48"></a-mixin>
                 <a-mixin id="murtourne" rotation="0 90 0"></a-mixin>
+
+                <!-- son -->
+                <audio id="son" src="./assets/son/musique.mp3" preload="auto" loop="true"></audio>
             </a-assets>
             
             <!-- murs -->
@@ -36,7 +41,7 @@
             <a-plane src="#sol" position="0 0 -3" geometry="height: 3.9; width: 3.93" rotation="-90 0 0"></a-plane>
             
             <!-- crane -->
-            <a-entity position="1.423 -0.01 -3.482" rotation="-122.43000000000002 180 0" obj-model="obj: #obj_skull; mtl: #mtl_skull" scale="0.02 0.02 0.02" roughness="0.2" metalness="1" material="metalness: 1; roughness: 0.3"></a-entity>
+            <a-entity position="1.423 1.3 -3.482" rotation="-90 180 0" obj-model="obj: #obj_skull; mtl: #mtl_skull" scale="0.02 0.02 0.02" roughness="0.2" metalness="1" material="metalness: 1; roughness: 0.3"></a-entity>
             
             <!-- camera et lumiere -->
             <a-entity camera="" position="0.556 1.6 -0.430" wasd-controls="acceleration: 10" look-controls="" aframe-injected="">
@@ -47,5 +52,14 @@
             <a-sky color="black"></a-sky>
 
         </a-scene>
+    
+        <!-- Conteneur avec bouton et paragraphe dédié -->
+        <div id="audio">
+            <button id="bouton">SON ON</button>
+            <p class="audio-text">touche 's' départ immédiat, bouton délai 10s</p>
+        </div>
 
+        <!-- Script de contrôle audio -->
+        <script src="https://ensaama-officiel-numerique.github.io/components/audio/audio-control.js"></script>
     </body>
+</html>
